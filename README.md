@@ -182,7 +182,7 @@ Similarly, you can just use the dockerfile in this repository.
 3. Run the Docker container with:
 
 ```console
-Docker run --rm --name imdb -p 8501:8501 imdb-model
+docker run --rm --name imdb -p 8501:8501 imdb-model
 ```
 
 4. tag the docker container with:

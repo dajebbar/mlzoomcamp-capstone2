@@ -98,11 +98,8 @@ See the [IMDb_Models.ipynb](./notebooks/IMDb_Models.ipynb) for this task.
 |LSTM model|50.2|
 
 
-I tried a multitude of models first, without data augmentation or transfer learning, it had a bad impact and I couldn't exceed an accuracy of 72%. Then, thanks to data augmentation and transfer learning, I was able to increase accuracy. the best accuracy was obtained with model 12 with a lost function which dropped to **0.2534** thanks to transfer learning via the base model `EfficientNetB7` as shown in the graph below.
-![best-model](./figures/model12.png)  
-We see that the test loss continues to drop, while the test accuracy continues to increase. I stopped at 25 epochs but I think the model can give better results by increasing the number of epochs, especially since the overfitting is minimal.  
-**Note**:
-The `ResNet50` was the worst model.
+Although the CNN model displays an accuracy of 92%, unfortunately it does not learn anything since it presents overfitting since the first epochs as shown in the following graph:  
+
 # Deployment of model
  I am using Streamlit on linux ubuntu, in order to deploy the model. To deploy this model with Sreamlit, please use:
   ```console

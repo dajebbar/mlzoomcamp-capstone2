@@ -9,6 +9,8 @@ numpy = "*"
 pandas = "*"
 joblib = "*"
 streamlit = "*"
+bs4 = "*"
+nltk = "*"
 
 [dev-packages]
 

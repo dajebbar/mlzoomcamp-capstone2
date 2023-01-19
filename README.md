@@ -120,7 +120,7 @@ pip install pipenv
 ```
 To replicate the environment, on your command line, use 
 ```console
-pipenv install scikit-learn streamlit
+pipenv install scikit-learn pandas numpy streamlit bs4 nltk
 ```  
 
 
@@ -129,10 +129,10 @@ pipenv install scikit-learn streamlit
 **Note**:  
 To perform the following steps you should logon to your DockerHub Account ( `Login & Password`)
 
-I have built the model and pushed it to [dajebbar/kitchenware-model:v.1.0](https://hub.docker.com/r/dajebbar/kitchenware-model). 
+I have built the model and pushed it to [dajebbar/imdb-model](https://hub.docker.com/r/dajebbar/kitchenware-model). 
 To use it just 
 ```console
-docker pull dajebbar/kitchenware-model:v.1.0
+docker pull dajebbar/imdb-model:latest
 ```
 
 Or in order to take the model from the docker container I built, just replace 
@@ -141,7 +141,7 @@ FROM python:3.9-slim
 
 #with 
 
-FROM dajebbar/kitchenware-model:v.1.0 
+FROM dajebbar/imdb-model:latest 
 ```  
 in the dockerfile.
 
@@ -161,7 +161,7 @@ COPY ["Pipfile", "Pipfile.lock", "./"]
 
 RUN pipenv install --deploy --system && rm -rf /root/.cache
 
-COPY ["predict.py", "kitchenwareModel.h5", "banner.png", "./"]
+COPY ["predict.py", "imdb_model.joblib", "./"]
 
 EXPOSE 8501
 
@@ -176,26 +176,26 @@ Similarly, you can just use the dockerfile in this repository.
 
 2. Build the Docker Container with :
 ```console
- docker build -t kitchenware-model .
+ docker build -t imdb-model .
  ```
 
 3. Run the Docker container with:
 
 ```console
-Docker run --rm --name kitchenware -p 8501:8501 kitchenware-model
+Docker run --rm --name imdb -p 8501:8501 imdb-model
 ```
 
 4. tag the docker container with:
 
 ```console
 
-docker tag kitchenware-model dajebbar/kitchenware-model:v.1.0
+docker tag imdb-model dajebbar/imdb-model:latest
 
 ```
 5. Push it to Docker registry with :
 
 ```console
-docker push dajebbar/kitchenware-model:v.1.0
+docker push dajebbar/imdb-model:latest
 
 ```
 # Test the project

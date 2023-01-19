@@ -133,7 +133,7 @@ def predict_sentiment(text):
             }
     else:
         return {
-            "label": "Negative",
+            "label": "NEGATIVE",
             "score": y
             }
    
@@ -151,7 +151,6 @@ option = st.selectbox(
 )
 
 if option == "Classify Text":
-    pass
     text = st.text_area(label="Enter Text")
     if text:
         answer = predict_sentiment(text)

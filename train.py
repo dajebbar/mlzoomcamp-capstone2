@@ -7,6 +7,7 @@ from sklearn.feature_extraction.text import (
 from sklearn.model_selection import (
     train_test_split,
 )
+from sklearn.svm import LinearSVC
 from joblib import dump
 
 

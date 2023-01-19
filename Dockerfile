@@ -15,5 +15,4 @@ COPY ["predict.py", "imdb_model.joblib", "./"]
 EXPOSE 8501
 
 ENTRYPOINT [ "streamlit", "run" ]
-
 CMD ["predict.py"]

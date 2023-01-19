@@ -22,21 +22,19 @@ This dataset contains movie reviews along with their associated binary sentiment
 See the [IMDb_EDA.ipynb](./notebooks/IMDb_EDA.ipynb) for this task.
 
 ### Analyzing text statistics
-**Reviews range**
+**Reviews range**  
 ![reviews_range](./img/rev_range.png)  
 The histogram shows that reviews range from 0 to 7000 characters and generally, it is between 0 to 3000 characters.
 
-Now, we will move on to data exploration at a word-level. Let’s plot the number of words appearing in each review.
+Now, we will move on to data exploration at a word-level. Let’s plot the number of words appearing in each review.  
 
-
-**Word level**
+**Word level**  
 ![word_level](./img/word_level.png)  
 It is clear that the number of words in reviews ranges from 0 to 1000 and mostly falls between 0 to 500 words.
 
-Let’s check the average word length in each sentence.
+Let’s check the average word length in each sentence.  
 
-
-**average word length**
+**average word length**  
 ![avg_wl](./img/avg_word_lth.png)  
 The average word length ranges between 4 to 7 with 5 being the most common length. Does it mean that people are using really short words in reviews? Let’s find out.
 
@@ -44,23 +42,24 @@ One reason why this may not be true is stopwords. Stopwords are the words that a
 
 Analyzing the amount and the types of stopwords can give us some good insights into the data.  
 
-**Dominate words**
+**Dominate words**  
 ![dominate_rev](./img/dominate_rev.png)  
 We can evidently see that stopwords such as "the", "a" and "and" dominate in reviews.
 
-So now we know which stopwords occur frequently in our text, let’s inspect which words other than these stopwords occur frequently.
+So now we know which stopwords occur frequently in our text, let’s inspect which words other than these stopwords occur frequently.  
 
-**Dominate words other than stop words**
+**Dominate words other than stop words**  
 ![NonStopw_dominate_rev](./img/NonStopw_dominate_rev.png)  
-Since the dataset is not yet cleaned up, the "br" space and tags appear with words such as film and movie.
+Since the dataset is not yet cleaned up, the "br" space and tags appear with words such as film and movie.  
 
 ### Ngram exploration
 Ngrams are simply contiguous sequences of n words. For example "movies", "The best movie" etc.If the number of words is two, it is called bigram. For 3 words it is called a trigram and so on.
 
-Looking at most frequent n-grams can give us a better understanding of the context in which the word was used.
+Looking at most frequent n-grams can give us a better understanding of the context in which the word was used.  
 
-**Analyze the top bigrams in our reviews.**  
-![2gram](./img/2gram.png)
+**Analyze the top bigrams in our reviews.**   
+![2gram](./img/2gram.png)  
+
 We can observe that the bigrams such as "this movie", "this film" that are related to movies dominate the reviews.
 
 How about trigrams?  
@@ -71,12 +70,12 @@ Same as the bigrams.
 Topic modeling is the process of using unsupervised learning techniques to extract the main topics that occur in a collection of documents.
 Latent Dirichlet Allocation (LDA) is an easy to use and efficient model for topic modeling. Each document is represented by the distribution of topics and each topic is represented by the distribution of words.
 Once we categorize our documents in topics we can dig into further data exploration for each topic or topic group.  
-Instead of print all the topics and try to make sense of them, there are tools that can help us run this data exploration more efficiently. One such tool is [pyLDAvis](https://github.com/bmabey/pyLDAvis) which visualizes the results of LDA interactively.To see that interaction, please open the [IMDb_EDA.ipynb](./notebooks/IMDb_EDA.ipynb) with [jupyter nbviewer](https://nbviewer.org/) .  
+Instead of print all the topics and try to make sense of them, there are tools that can help us run this data exploration more efficiently. One such tool is [pyLDAvis](https://github.com/bmabey/pyLDAvis) which visualizes the results of LDA interactively.To see that interaction, please open the [IMDb_EDA.ipynb](./notebooks/IMDb_EDA.ipynb) with [jupyter nbviewer](https://nbviewer.org/).  
 
 ### Wordcloud
 
 Wordcloud is a great way to represent text data. The size and color of each word that appears in the wordcloud indicate it’s frequency or importance.  
-![wordcloud](./img/wordcloud.png) 
+![wordcloud](./img/wordcloud.png)  
 
 
 

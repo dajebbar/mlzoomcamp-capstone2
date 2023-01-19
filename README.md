@@ -103,7 +103,8 @@ Although the CNN model displays an accuracy of 92%, unfortunately it does not le
 
 Regarding the long short term memory model (LSTM), it does not manage to exceed the dummy classifier and displays an accuracy of **50%**.  
 
-After the optimization of the three candidate models, namely, [LinearSVC, MultinomialNB, XGBClassifier], the best model and the LinearSVC with a score of more than **86%**.
+After the optimization of the three candidate models, namely, [LinearSVC, MultinomialNB, XGBClassifier], the best model and the LinearSVC with a score of more than **86%**:
+![linerSVC-accuracy](./img/svc.png) 
 
 # Deployment of model
  I am using Streamlit on linux ubuntu, in order to deploy the model. To deploy this model with Sreamlit, please use:

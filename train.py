@@ -13,14 +13,10 @@ from joblib import dump
 
 imdb_df=pd.read_csv('./dataset/clean_imdb.csv')
 
-# print(imdb_df.shape)
-
 data, target = imdb_df["review"], imdb_df["sentiment"]
 
 tfidf_vect = TfidfVectorizer(max_features=1000, ngram_range=(1,3)) 
 data_tfidf = tfidf_vect.fit_transform(data).toarray()
-
-# print(data_tfidf.shape)
 
 X_train, X_test, y_train, y_test = train_test_split(
     data_tfidf, 
@@ -38,4 +34,4 @@ model = LinearSVC(
 model.fit(X_train, y_train)
 
 dump(model, 'imdb_model.joblib')
-print("done!") 
+print("Done!") 

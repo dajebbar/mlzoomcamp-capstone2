@@ -19,45 +19,84 @@ This dataset contains movie reviews along with their associated binary sentiment
 # Contents of the folder 
 ![tree](./img/tree.png)  
 # Exploratory Data Analysis
-See the [Kitchenware_EDA.ipynb](./notebooks/Kitchenware_EDA.ipynb) for this task.
+See the [IMDb_EDA.ipynb](./notebooks/IMDb_EDA.ipynb) for this task.
 
-### Image sizes statistics
-![sizes](./figures/sizes.png)  
-The images have various and varied sizes, ranging from 39 Kilopixels to 976 Kilopixels, also more than half of the images are concentrated at 750 Kpixels. This is bad news since the tensors must imperatively have the same size.
+### Analyzing text statistics
+**Reviews range**
+![reviews_range](./img/rev_range.png)  
+The histogram shows that reviews range from 0 to 7000 characters and generally, it is between 0 to 3000 characters.
 
-### The width to height ratio (lx/ly)
-![lxy_ratio](./figures/ratio_lx_ly.png)  
-Most images are vertical.
+Now, we will move on to data exploration at a word-level. Let’s plot the number of words appearing in each review.
 
-### By width (lx)
-![width](./figures/width.png)  
-The width varies from 233 to 1000, and it is concentrated on 1000.
-### By height (ly)
-![heigth](./figures/ly.png)  
-The height varies from 174 to 1000, and it is concentrated on 750.
-### Labels statistics
-![labels](./figures/labels.png)  
-**Not** all labels are representend equaly.
+
+**Word level**
+![word_level](./img/word_level.png)  
+It is clear that the number of words in reviews ranges from 0 to 1000 and mostly falls between 0 to 500 words.
+
+Let’s check the average word length in each sentence.
+
+
+**average word length**
+![avg_wl](./img/avg_word_lth.png)  
+The average word length ranges between 4 to 7 with 5 being the most common length. Does it mean that people are using really short words in reviews? Let’s find out.
+
+One reason why this may not be true is stopwords. Stopwords are the words that are most commonly used in any language such as "the", "a", "an" etc. As these words are probably small in length these words may have caused the above graph to be left-skewed.
+
+Analyzing the amount and the types of stopwords can give us some good insights into the data.  
+
+**Dominate words**
+![dominate_rev](./img/dominate_rev.png)  
+We can evidently see that stopwords such as "the", "a" and "and" dominate in reviews.
+
+So now we know which stopwords occur frequently in our text, let’s inspect which words other than these stopwords occur frequently.
+
+**Dominate words other than stop words**
+![NonStopw_dominate_rev](./img/NonStopw_dominate_rev.png)  
+Since the dataset is not yet cleaned up, the "br" space and tags appear with words such as film and movie.
+
+### Ngram exploration
+Ngrams are simply contiguous sequences of n words. For example "movies", "The best movie" etc.If the number of words is two, it is called bigram. For 3 words it is called a trigram and so on.
+
+Looking at most frequent n-grams can give us a better understanding of the context in which the word was used.
+
+**Analyze the top bigrams in our reviews.**  
+![2gram](./img/2gram.png)
+We can observe that the bigrams such as "this movie", "this film" that are related to movies dominate the reviews.
+
+How about trigrams?  
+![3gram](./img/3gram.png)  
+Same as the bigrams.  
+
+### Topic modeling exploration
+Topic modeling is the process of using unsupervised learning techniques to extract the main topics that occur in a collection of documents.
+Latent Dirichlet Allocation (LDA) is an easy to use and efficient model for topic modeling. Each document is represented by the distribution of topics and each topic is represented by the distribution of words.
+Once we categorize our documents in topics we can dig into further data exploration for each topic or topic group.  
+Instead of print all the topics and try to make sense of them, there are tools that can help us run this data exploration more efficiently. One such tool is [pyLDAvis](https://github.com/bmabey/pyLDAvis) which visualizes the results of LDA interactively.To see that interaction, please open the [IMDb_EDA.ipynb](./notebooks/IMDb_EDA.ipynb) with [jupyter nbviewer](https://nbviewer.org/) .  
+
+### Wordcloud
+
+Wordcloud is a great way to represent text data. The size and color of each word that appears in the wordcloud indicate it’s frequency or importance.  
+![wordcloud](./img/wordcloud.png) 
+
+
 
 # Models
-See the [kaggle_zoomcamp_competition_1.ipynb](./notebooks/kaggle_zoomcamp_competition_1.ipynb)  and [kaggle_zoomcamp_competition_2.ipynb](./notebooks/kaggle_zoomcamp_competition_2.ipynb) for this task.
-## Summary of the models ✖️: without_ | ✔️: with_
-| Model | Data Augmentation | Transfer Learning | Epochs | Losss | Accuracy % |
-|:---|:---|:---|:---|:---|:---|
-|model 1|✖️|✖️|25|0.8718|67.0266|
-|model 2|✖️|✖️|10|1.0553|66.7387|
-|model 3|✖️|✖️|10|0.7926|71.7063|
-|model 4|✔️|✖️|25|0.7995|68.8265|
-|model 5|✔️|vgg16 ✔️|25|0.7966|92.1526|
-|model 6|✔️|vgg 16 ✔️|10|✖️|✖️|
-|model 7|✔️|vgg 16 ✔️|10|0.4065|91.3607|
-|model 8|✔️|efficientnet0 ✔️|10|0.4896|91.2887|
-|model 9|✔️|efficientnet0 ✔️|10|0.4793|90.9287|
-|model 10|✔️|efficientnetB7 ✔️|10|0.2978|92.0806|
-|model 10 bis|✔️|efficientnetB7 ✔️|10|0.2990|93.5925|
-|model 11|✔️|efficientnetB7 ✔️|20|0.2830|93.9525|
-|model 12|✔️|efficientnetB7 ✔️|25|0.2534|93.6645|
-|model 13|✔️|resnet50 ✔️|10|1.5776|39.7408|
+See the [IMDb_Models.ipynb](./notebooks/IMDb_Models.ipynb) for this task.
+## Summary of the models
+| Models | Accuracy % |
+|:---|:---|
+|DummyClassifier|50.2|
+|LogisticRegression|86.3|
+|LinearSVC|86.3|
+|GaussianNB|81.6|
+|MultinomialNB|83.7|
+|RandomForestClassifier|83.1|
+|GradientBoostingClassifier|80.9|
+|HistGradientBoostingClassifier|84.5|
+|XGBClassifier|80.7|
+|CNN model|92.8|
+|LSTM model|50.2|
+
 
 I tried a multitude of models first, without data augmentation or transfer learning, it had a bad impact and I couldn't exceed an accuracy of 72%. Then, thanks to data augmentation and transfer learning, I was able to increase accuracy. the best accuracy was obtained with model 12 with a lost function which dropped to **0.2534** thanks to transfer learning via the base model `EfficientNetB7` as shown in the graph below.
 ![best-model](./figures/model12.png)  
@@ -78,9 +117,9 @@ pip install pipenv
 ```
 To replicate the environment, on your command line, use 
 ```console
-pipenv install tensorflow streamlit efficientnet
+pipenv install scikit-learn streamlit
 ```  
-**Note**: I don't have a GPU installed on my laptop for this I only installed tensorflow without GPU configuration. If you have a GPU, try to configure tensorflow with NVIDIA, CUDA and cuDNN.
+
 
 # Docker
 

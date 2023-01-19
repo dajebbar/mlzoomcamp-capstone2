@@ -129,7 +129,7 @@ pipenv install scikit-learn pandas numpy streamlit bs4 nltk
 **Note**:  
 To perform the following steps you should logon to your DockerHub Account ( `Login & Password`)
 
-I have built the model and pushed it to [dajebbar/imdb-model](https://hub.docker.com/r/dajebbar/kitchenware-model). 
+I have built the model and pushed it to [dajebbar/imdb-model](https://hub.docker.com/u/dajebbar). 
 To use it just 
 ```console
 docker pull dajebbar/imdb-model:latest

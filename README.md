@@ -199,7 +199,7 @@ docker push dajebbar/imdb-model:latest
 ```
 # Test the project
 
-A quick demo of the web app can be found [here](https://youtu.be/2UpQsupCfUQ).  
+A quick demo of the web app can be found [here](https://youtu.be/AacgwUcIxu8).  
 
 # Want to Contribute?
 * Fork 🍴 the repository and send PRs.

@@ -112,18 +112,18 @@ def vectorize_data(text):
     data_tfidf = tfidf_vect.fit_transform(data).toarray()
     return data_tfidf
 
-
 def predict_sentiment(text):
     X = vectorize_data(text)
+    
     def _adjust_col(m):
         m = m.ravel().tolist()
         z = np.zeros((1000, 1000), dtype=int).ravel().tolist()
         a = m + z
         a = a[:-len(m)]
         a = np.array(a)
-        #print(len(a))
         a = a.reshape(1000, 1000)
         return a
+    
     Z = _adjust_col(X)
     y = model._predict_proba_lr(Z)[0, 1]
     if y >=.5:
@@ -134,15 +134,9 @@ def predict_sentiment(text):
     else:
         return {
             "label": "NEGATIVE",
-            "score": y
+            "score": 1-y
             }
    
-
-
-# text = "bad movie"
-
-# print(predict_sentiment(text))
-
 option = st.selectbox(
     "select an option",
     [
@@ -155,5 +149,3 @@ if option == "Classify Text":
     if text:
         answer = predict_sentiment(text)
         st.write(answer)
-
-

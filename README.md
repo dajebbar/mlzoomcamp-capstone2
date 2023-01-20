@@ -198,13 +198,9 @@ docker push dajebbar/imdb-model:latest
 
 ```
 # Test the project
-Here are some screen shots showing the interaction with the application, which represents the final product.
-![cmd](./figures/cmd.png)
-![cup](./figures/cup.png)
-![fork](./figures/fork.png)
-![plate](./figures/plate.png)  
 
-A quick demo of app can be found [here](https://youtu.be/yvnH_PTsQFM).
+A quick demo of the web app can be found [here](https://youtu.be/2UpQsupCfUQ).  
+
 # Want to Contribute?
 * Fork 🍴 the repository and send PRs.
 * Do ⭐ this repository if you like the content.
@@ -217,5 +213,4 @@ A quick demo of app can be found [here](https://youtu.be/yvnH_PTsQFM).
   <a href="https://www.twitter.com/marokart/" target="blank"><img align="center"  src="https://img.icons8.com/color/48/000000/twitter--v2.png" alt="https://www.twitter.com/marokart/" height="30" width="30" /></a>
   <a href="https://www.kaggle.com/dajebbar" target="blank">
     <img align="center" src="https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/38/external-kaggle-an-online-community-of-data-scientists-and-machine-learners-owned-by-google-logo-shadow-tal-revivo.png" alt="https://www.kaggle.com/dajebbar" height="30" width="30" /></a>
-  
 </p>
